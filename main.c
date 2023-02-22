@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * parse_input - parses input into an array of arguments
