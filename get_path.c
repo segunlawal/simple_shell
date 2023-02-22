@@ -12,13 +12,13 @@ char *search_in_path(char *path, char *comm)
 	int comm_len, dir_len;
 	struct stat buffer;
 
-	path_cpy = strdup(path);
-	comm_len = strlen(comm);
+	path_cpy = my_strdup(path);
+	comm_len = _strlen(comm);
 	path_tkn = strtok(path_cpy, ":");
 
 	while (path_tkn != NULL)
 	{
-		dir_len = strlen(path_tkn);
+		dir_len = _strlen(path_tkn);
 		file_path = malloc(comm_len + dir_len + 2);
 
 		_strncpy(file_path, path_tkn);
