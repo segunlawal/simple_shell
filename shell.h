@@ -17,5 +17,6 @@ char *search_in_path(char *path, char *comm);
 void parse_input(char *input, char ***args, int *num_args);
 void run_shell(void);
 int main(int ac, char **argv);
+int _strlen(char *s);
 
 #endif/*_MAIN_H*/
