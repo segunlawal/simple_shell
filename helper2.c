@@ -33,15 +33,15 @@ char *my_strdup(char *str)
  * _getenv - gets the value of an environment variable
  * @name: the name of the environment variable
  *
- * Return: a pointer to the value of the environment variable, or NULL if it is not found
+ * Return: a pointer to the value of the environment variable,
+ * or NULL if it is not found
  */
 char *_getenv(const char *name)
 {
-	extern char **environ;
 	char *value = NULL;
 	size_t name_len = strlen(name);
 	int i;
-	
+
 	for (i = 0; environ[i] != NULL; i++)
 	{
 		if (_strncmp(name, environ[i], name_len) == 0 && environ[i][name_len] == '=')
@@ -65,7 +65,7 @@ char *_getenv(const char *name)
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i = 0;
-	
+
 	while (i < n && s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 	{
 		i++;
