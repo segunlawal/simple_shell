@@ -21,5 +21,7 @@ int _strlen(char *s);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 char *my_strdup(char *str);
+char *_getenv(const char *name);
+int _strncmp(const char *s1, const char *s2, size_t n);
 
 #endif/*_MAIN_H*/

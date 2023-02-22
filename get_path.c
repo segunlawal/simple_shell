@@ -54,7 +54,7 @@ char *get_path(char *comm)
 	char *path, *file_path;
 	struct stat buffer;
 
-	path = getenv("PATH");
+	path = _getenv("PATH");
 
 	if (path)
 	{
