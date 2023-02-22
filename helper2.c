@@ -37,21 +37,20 @@ char *my_strdup(char *str)
  */
 char *_getenv(const char *name)
 {
-    extern char **environ;
-    char *value = NULL;
-    size_t name_len = strlen(name);
-    int i;
-
-    for (i = 0; environ[i] != NULL; i++)
-    {
-        if (_strncmp(name, environ[i], name_len) == 0 && environ[i][name_len] == '=')
-        {
-            value = environ[i] + name_len + 1;
-            break;
-        }
-    }
-
-    return value;
+	extern char **environ;
+	char *value = NULL;
+	size_t name_len = strlen(name);
+	int i;
+	
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		if (_strncmp(name, environ[i], name_len) == 0 && environ[i][name_len] == '=')
+		{
+			value = environ[i] + name_len + 1;
+			break;
+		}
+	}
+	return (value);
 }
 
 /**
@@ -60,24 +59,25 @@ char *_getenv(const char *name)
  * @s2: the second string
  * @n: the maximum number of characters to compare
  *
- * Return: an integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2
+ * Return: an integer less than, equal to, or greater than zero if s1 is found,
+ * respectively, to be less than, to match, or be greater than s2
  */
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
-    size_t i = 0;
+	size_t i = 0;
+	
+	while (i < n && s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		i++;
+	}
 
-    while (i < n && s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-    {
-        i++;
-    }
-
-    if (i == n)
-    {
-        return 0;
-    }
-    else
-    {
-        return (s1[i] - s2[i]);
-    }
+	if (i == n)
+	{
+		return (0);
+	}
+	else
+	{
+		return (s1[i] - s2[i]);
+	}
 }
 

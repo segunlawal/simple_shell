@@ -28,40 +28,47 @@ int _strlen(char *s)
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-    int i;
-    for (i = 0; i < n && src[i] != '\0'; i++)
-    {
-        dest[i] = src[i];
-    }
-    for (; i < n; i++)
-    {
-        dest[i] = '\0';
-    }
-    return dest;
+	int i;
+
+	for (i = 0; i < n && src[i] != '\0'; i++)
+	{
+		dest[i] = src[i];
+	}
+
+	for (; i < n; i++)
+	{
+		dest[i] = '\0';
+	}
+	return (dest);
 }
 
 /**
-*@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
+ * _strncat - concatenate two strings
+ * @dest: the first string
+ * @src: the second string
+ * @n: the amount of bytes to be maximally used
+ * Return: the concatenated string
  */
 char *_strncat(char *dest, char *src, int n)
 {
-        int i, j;
-        char *s = dest;
+	int i, j;
+	char *s = dest;
 
-        i = 0;
-        j = 0;
-        while (dest[i] != '\0')
-                i++;
-        while (src[j] != '\0' && j < n)
-        {
-                dest[i] = src[j];
-                i++;
-                j++;
-        }
-        if (j < n)
-                dest[i] = '\0';
-        return (s);
+	i = 0;
+	j = 0;
+
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	if (j < n)
+		dest[i] = '\0';
+	return (s);
 }
 

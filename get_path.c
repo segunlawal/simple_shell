@@ -20,7 +20,7 @@ char *search_in_path(char *path, char *comm)
 	while (path_tkn != NULL)
 	{
 		dir_len = _strlen(path_tkn);
-		n= comm_len + dir_len + 2;
+		n = comm_len + dir_len + 2;
 		file_path = malloc(n);
 
 		_strncpy(file_path, path_tkn, dir_len);
