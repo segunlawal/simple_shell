@@ -4,9 +4,9 @@
  * @str: string to de duplicated
  * Return: duplicate of string
  */
-char *my_strdup(const char *str)
+char *my_strdup(char *str)
 {
-	size_t len = 0, i;
+	size_t len = _strlen(str), i;
 	char *newstr = malloc(len + 1);
 
 	while (str[len] != '\0')

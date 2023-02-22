@@ -10,6 +10,7 @@ char *search_in_path(char *path, char *comm)
 {
 	char *path_cpy, *path_tkn, *file_path;
 	int comm_len, dir_len;
+	size_t n;
 	struct stat buffer;
 
 	path_cpy = my_strdup(path);
@@ -19,12 +20,13 @@ char *search_in_path(char *path, char *comm)
 	while (path_tkn != NULL)
 	{
 		dir_len = _strlen(path_tkn);
-		file_path = malloc(comm_len + dir_len + 2);
+		n= comm_len + dir_len + 2;
+		file_path = malloc(n);
 
-		_strncpy(file_path, path_tkn);
-		_strncat(file_path, "/");
-		_strncat(file_path, comm);
-		_strncat(file_path, "\0");
+		strncpy(file_path, path_tkn, dir_len);
+		strncat(file_path, "/", _strlen("/"));
+		strncat(file_path, comm, comm_len);
+		strncat(file_path, "\0", _strlen("\0"));
 
 		if (stat(file_path, &buffer) == 0)
 		{

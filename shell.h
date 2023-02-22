@@ -18,8 +18,8 @@ void parse_input(char *input, char ***args, int *num_args);
 void run_shell(void);
 int main(int ac, char **argv);
 int _strlen(char *s);
-void _strncat(char *dest, const char *src);
-void _strncpy(char *dest, char *src);
-char *my_strdup(const char *str);
+char *_strncat(char *dest, char *src, int n);
+char *_strncpy(char *dest, char *src, int n);
+char *my_strdup(char *str);
 
 #endif/*_MAIN_H*/
