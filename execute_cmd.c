@@ -7,6 +7,8 @@
 
 void execute_cmd(char **argv)
 {
+	char **env = environ;
+
 	pid_t pid = fork();
 
 	if (pid == -1)
@@ -15,11 +17,10 @@ void execute_cmd(char **argv)
 	}
 	else if (pid == 0)
 	{
-		/* Child process */
 		char *comm = argv[0];
 		char *comm_path = get_path(comm);
 
-		if (execve(comm_path, argv, NULL) == -1)
+		if (execve(comm_path, argv, env) == -1)
 		{
 			perror("Error");
 			exit(1);
@@ -27,7 +28,6 @@ void execute_cmd(char **argv)
 	}
 	else
 	{
-		/* Parent process */
 		int status;
 
 		waitpid(pid, &status, 0);
