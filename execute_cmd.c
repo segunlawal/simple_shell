@@ -8,7 +8,6 @@
 void execute_cmd(char **argv)
 {
 	char **env = environ;
-
 	pid_t pid = fork();
 
 	if (pid == -1)
@@ -37,15 +36,13 @@ void execute_cmd(char **argv)
 
 			if (exit_status != 0)
 			{
-				fprintf(stderr, "Command exited with status %d\n", exit_status);
+				write(STDOUT_FILENO, "Command exited\n", 15);
 			}
 		}
 		else if (WIFSIGNALED(status))
 		{
-			int sig = WTERMSIG(status);
+			write(STDOUT_FILENO, "Command killed\n", 15);
 
-			fprintf(stderr, "Command killed by signal %d\n", sig);
 		}
 	}
 }
-
