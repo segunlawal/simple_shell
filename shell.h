@@ -18,5 +18,7 @@ void parse_input(char *input, char ***args, int *num_args);
 void run_shell(void);
 int main(int ac, char **argv);
 int _strlen(char *s);
+char *_strncat(char *dest, char *src, int n);
+char *_strncpy(char *dest, char *src, int n);
 
 #endif/*_MAIN_H*/
