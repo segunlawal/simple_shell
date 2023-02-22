@@ -23,10 +23,10 @@ char *search_in_path(char *path, char *comm)
 		n= comm_len + dir_len + 2;
 		file_path = malloc(n);
 
-		strncpy(file_path, path_tkn, dir_len);
-		strncat(file_path, "/", _strlen("/"));
-		strncat(file_path, comm, comm_len);
-		strncat(file_path, "\0", _strlen("\0"));
+		_strncpy(file_path, path_tkn, dir_len);
+		_strncat(file_path, "/", _strlen("/"));
+		_strncat(file_path, comm, comm_len);
+		_strncat(file_path, "\0", _strlen("\0"));
 
 		if (stat(file_path, &buffer) == 0)
 		{
