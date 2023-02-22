@@ -29,7 +29,7 @@ void parse_input(char *input, char ***args, int *num_args)
 	token = strtok(line_copy, delim);
 	for (i = 0; token != NULL; i++)
 	{
-		(*args)[i] = strdup(token);
+		(*args)[i] = my_strdup(token);
 		token = strtok(NULL, delim);
 	}
 	(*args)[*num_args - 1] = NULL;
@@ -50,10 +50,12 @@ void run_shell(void)
 	ssize_t read_val;
 	int num_args, i;
 	char **args;
+	char *prompt = "$ ";
+	char *exit_msg = "Exiting shell...\n";
 
 	while (1)
 	{
-		printf("$ ");
+		write(STDOUT_FILENO, prompt, 2);
 		read_val = getline(&line, &len, stdin);
 		if (read_val == -1)
 		{
@@ -63,12 +65,12 @@ void run_shell(void)
 
 		parse_input(line, &args, &num_args);
 
-		if (strcmp(args[0], "exit") == 0)
+		if (_strncmp(args[0], "exit", 4) == 0)
 		{
-			printf("Exiting shell...\n");
+			write(STDOUT_FILENO, exit_msg, 17);
 			exit(0);
 		}
-		if (strcmp(args[0], "env") == 0)
+		if (_strncmp(args[0], "env", 3) == 0)
 		{
 			builtin_env();
 		}
