@@ -36,10 +36,10 @@ char *my_strdup(char *str)
  * Return: a pointer to the value of the environment variable,
  * or NULL if it is not found
  */
-char *_getenv(const char *name)
+char *_getenv(char *name)
 {
 	char *value = NULL;
-	size_t name_len = strlen(name);
+	size_t name_len = _strlen(name);
 	int i;
 
 	for (i = 0; environ[i] != NULL; i++)
