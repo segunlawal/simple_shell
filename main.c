@@ -10,7 +10,7 @@
  */
 void parse_input(char *input, char ***args, int *num_args)
 {
-	char *line_copy = strdup(input);
+	char *line_copy = my_strdup(input);
 	char *token;
 	const char *delim = " \n";
 	int i;
