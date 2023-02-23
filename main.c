@@ -24,7 +24,7 @@ void parse_input(char *input, char ***args, int *num_args)
 	}
 	(*num_args)++;
 
-	*args = malloc(sizeof(char *) * (*num_args));
+	*args = malloc(_sizeof(char *) * (*num_args));
 
 	token = strtok(line_copy, delim);
 	for (i = 0; token != NULL; i++)

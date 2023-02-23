@@ -81,3 +81,17 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	}
 }
 
+/**
+ * _sizeof - calculate size of operator
+ * @ptr: pointer to operatoe
+ * Return: size of operator
+ */
+size_t _sizeof(const void *ptr)
+{
+	const char *ptr1 = (const char *) ptr;
+	const char *ptr2 = (const char *) ptr + 1;
+
+
+	return ((size_t) (ptr2 - ptr1));
+}
+

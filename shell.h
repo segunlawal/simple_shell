@@ -23,5 +23,6 @@ char *_strncpy(char *dest, char *src, int n);
 char *my_strdup(char *str);
 char *_getenv(char *name);
 int _strncmp(const char *s1, const char *s2, size_t n);
+size_t _sizeof(const void *ptr);
 
 #endif/*_MAIN_H*/
