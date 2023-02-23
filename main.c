@@ -50,8 +50,7 @@ void run_shell(void)
 	ssize_t read_val;
 	int num_args, i;
 	char **args;
-	char *prompt = "$ ";
-	char *exit_msg = "Exiting shell...\n";
+	char *prompt = "$ ", *exit_msg = "Exiting shell...\n";
 
 	while (1)
 	{
@@ -62,9 +61,12 @@ void run_shell(void)
 			perror("Getline failed\n");
 			return;
 		}
-
 		parse_input(line, &args, &num_args);
-
+		if (num_args == 0)
+		{
+			perror("no args");
+			continue;
+		}
 		if (_strncmp(args[0], "exit", 4) == 0)
 		{
 			write(STDOUT_FILENO, exit_msg, 17);
@@ -82,7 +84,6 @@ void run_shell(void)
 		}
 		free(args);
 	}
-
 	free(line);
 }
 
