@@ -43,7 +43,7 @@ char *_getenv(info_t *info, const char *name)
 int _mysetenv(info_t *info)
 {
 	if (info->argc != 3)
-        {
+	{
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
@@ -66,7 +66,7 @@ int _myunsetenv(info_t *info)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
-        }
+	}
 	for (i = 1; i <= info->argc; i++)
 		_unsetenv(info, info->argv[i]);
 
