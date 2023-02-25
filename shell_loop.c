@@ -43,7 +43,7 @@ int hsh(info_t *info, char **av)
 }
 
 /**
- * find_builtin - finds a builtin command
+ * find_builtin - find a builtin command
  * @info: the parameter & return info struct
  *
  * Return: -1 if builtin not found,
